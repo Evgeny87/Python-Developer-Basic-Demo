@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "homework-05"
+version = "0.1.0"
+description = ""
+authors = ["Sannikov Evgeny <sun_nik_off@mail.ru>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "homework_05"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Flask = "^2.2.2"
+
+[tool.poetry.group.dev.dependencies]
+black = "^22.12.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
