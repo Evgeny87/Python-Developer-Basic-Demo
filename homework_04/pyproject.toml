@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "homework-04"
+version = "0.1.0"
+description = ""
+authors = ["Sannikov Evgeny <sun_nik_off@mail.ru>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "homework_04"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+aiodns = "^3.0.0"
+aiohttp = "^3.8.3"
+SQLAlchemy = "^1.4.46"
+greenlet = "^2.0.1"
+asyncpg = "^0.27.0"
+async-timeout = "^4.0.2"
+
+[tool.poetry.group.dev.dependencies]
+black = "^22.12.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
