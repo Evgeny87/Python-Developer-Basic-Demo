@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% load static %}
+    <link
+        href="{% static 'blog/css/bootstrap.min.css' %}"
+        type="text/css"
+        rel="stylesheet"
+    />
+
+    <title>
+      {% block title %}
+        Base Title
+      {% endblock %}
+    </title>
+
+    <style>
+      html {
+        background: #f6ead4;
+      }
+      body {
+        background: #b4a284;
+      }
+      h1 {
+        font-size: 2em;
+      }
+      button {
+        margin: 4px;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Blog</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link" href="{% url 'blog_django_app:users' %}">Users</a>
+            <a class="nav-link" href="{% url 'blog_django_app:posts' %}">Posts</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container my-4">
+
+      <h1>
+        {% block body %}
+          Base Body
+        {% endblock %}
+      </h1>
+
+    </div>
+
+    <script src="{% static 'blog/js/bootstrap.bundle.min.js' %}"></script>
+
+  </body>
+</html>

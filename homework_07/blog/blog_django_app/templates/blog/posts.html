@@ -1,0 +1,28 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}
+  Posts List
+{% endblock %}
+
+{% block body %}
+  <h1>Posts: </h1>
+
+  {% if posts %}
+    <ul class="list-group">
+      {% for post in posts %}
+        <li class="list-group-item">
+          <a class="text-decoration-none">
+            <strong>
+              <a href="{% url 'blog_django_app:post_details' pk=post.id %}">"{{ post.title }}"</a>
+            </strong>  by {{ post.user.name }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <div>
+      <strong>No posts.</strong>
+    </div>
+  {% endif %}
+
+{% endblock %}
