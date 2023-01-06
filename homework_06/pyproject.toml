@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "homework-06"
+version = "0.1.0"
+description = ""
+authors = ["Sannikov Evgeny <sun_nik_off@mail.ru>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "homework_06"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Flask = "^2.2.2"
+SQLAlchemy = "^1.4.46"
+flask-sqlalchemy = "^3.0.2"
+
+[tool.poetry.group.dev.dependencies]
+black = "^22.12.0"
+flask-wtf = "^1.0.1"
+psycopg2-binary = "^2.9.5"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

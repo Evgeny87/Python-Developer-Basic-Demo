@@ -1,0 +1,33 @@
+version: "3.3"
+
+services:
+  app:
+    build:
+      dockerfile: ./Dockerfile
+    environment:
+      CONFIG: ProductionConfig
+      SQLALCHEMY_DATABASE_URI: postgresql://username:passwd!@pg:5432/project
+    ports:
+      - "8000:80"
+    depends_on:
+      pg:
+        condition: service_healthy
+  pg:
+    image: postgres
+    environment:
+      POSTGRES_DB: project
+      POSTGRES_USER: username
+      POSTGRES_PASSWORD: passwd!
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data/pgdata
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -d project -U username" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  db-data:
